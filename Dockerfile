@@ -1,6 +1,9 @@
 # Usar una imagen base con Python (en tu caso, la versión 3.12.3)
 FROM python:3.12.3-slim-bullseye
 
+# Actualizar pip, setuptools y wheel
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
 # Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
