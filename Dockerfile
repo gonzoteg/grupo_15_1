@@ -1,5 +1,5 @@
 # Usar una imagen base con Python (en tu caso, la versión 3.12.3)
-FROM python:3.12.3-slim-bullseye
+FROM python:3.11.10-slim-bullseye
 
 # Actualizar pip, setuptools y wheel
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
@@ -11,7 +11,7 @@ WORKDIR /app
 COPY requirements.txt ./
 
 # Instalar las dependencias desde requirements.txt
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código de la aplicación
 COPY ./app ./app
