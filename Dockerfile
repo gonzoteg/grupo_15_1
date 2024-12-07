@@ -11,7 +11,7 @@ WORKDIR /app
 COPY requirements.txt ./
 
 # Instalar las dependencias desde requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código de la aplicación
 COPY ./app ./app
