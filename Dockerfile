@@ -16,6 +16,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar el resto del código de la aplicación
 COPY ./app ./app
 
+# Copiar el archivo apprunner.yaml al contenedor
+COPY apprunner.yaml ./   
+# Asegúrate de que el archivo apprunner.yaml esté en el directorio adecuado
+
 # Exponer el puerto 8000 para la API de uvicorn
 EXPOSE 8000
 

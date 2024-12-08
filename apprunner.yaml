@@ -1,0 +1,18 @@
+version: 1.0
+runtime: python3.11  # Indicar la versión de Python que estás usando
+
+service:
+  name: grupo_15_1  # Nombre de tu servicio en App Runner
+  source: .  # Directorio de origen de tu aplicación (se asume que está en el directorio raíz del contenedor)
+  healthCheck:
+    enabled: true  # Habilitar la verificación de salud
+    path: /health  # Ruta para comprobar la salud de la aplicación
+    interval: 30  # Intervalo en segundos entre verificaciones de salud
+    timeout: 5  # Tiempo de espera para cada verificación de salud
+    retries: 3  # Número de intentos fallidos antes de marcar el servicio como no saludable
+
+  # Comando de inicio para ejecutar la aplicación dentro del contenedor
+  startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  # Puertos que deben exponerse
+  port: 8000
